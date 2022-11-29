@@ -1,0 +1,670 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400');
+@import "compass/css3";
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css);
+@font-face {
+  font-family: 'minimal';
+  src:  url(fonts/minimal.otf), 
+  
+}
+
+
+
+p{
+  font-family: minimal;
+    font-size:1.8em;
+    letter-spacing: 2px;
+    color: rgb(255, 255, 255);
+  
+    opacity: 81%;
+    
+    }
+
+  
+  
+     /* create a text highlight color when selected for text and hightlight colours 
+   
+   I liked the unusal contrast in colors of blue and yellow*/ 
+  ::selection {
+    color: rgb(236, 229, 9);
+    
+    
+  }
+
+h2 {
+color: white;
+font-family: minimal;
+
+padding-top: 0;
+margin: 0;
+text-align: center;
+font-size: 100px;
+letter-spacing: 15px;
+}
+
+
+/* Adding a drop down shadow to the image of the album cover. 
+This was a design decsion that added a 3D sort of effect, 
+trying to make the album feel physical like the user can grab it*/
+
+h3 {
+font-size: 40px;
+text-align: center;
+font-family: minimal;
+letter-spacing: 4px;
+
+}
+
+
+
+#outline {
+
+  
+ border-radius: 10px;
+ 
+
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 2s;
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+  
+
+
+#outline2 {
+  color: rgb(210, 187, 219);
+  border:solid 2px ;
+ box-shadow: 10px 4px rgb(17, 17, 17);
+ 
+ 
+
+}
+
+/* This code was tricky to set up as I hadnt dealt with retreaving images within css */
+
+  #parallax {
+
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    background-image: url(img/Records-Text.png),  url(img/dot.png), url(img/coverbase.png);
+    background-size:25%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position: 50% 50%;
+    animation-name: slideIn;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: 1.5s;
+
+
+  
+  }
+
+
+
+/* it took me a while but I figured a way to resize the paralax effect of the images
+as it was always too big when viewed in mobile ratio
+I realised that I needed to add the tag background-size when changing background-images dimensions */
+ 
+
+
+@keyframes slideIn{
+0% {
+  height: 10vh;
+  opacity: 1%;
+  background-size:10%;
+} 
+
+}
+
+
+
+
+
+
+
+
+  h1 {
+    position: absolute;
+    top: 47%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(255, 255, 255);
+  
+    text-transform: uppercase;
+    opacity: 10;
+
+    font-size: 70px;
+  }
+
+
+   
+/* the transition used for the body and margin within the div id for the paralax effect
+is what makes the hovering effect so smooth */
+/* used for spacing on the player and artist tags of writing and organzing the strucure of the h1, h2 tags*/
+* {
+    
+  margin: 2px;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: arial;
+  letter-spacing: 2px;
+  transition: all 0.35s linear;
+  
+}
+
+body {
+display:inline;
+justify-content: center;
+align-items: center;
+min-height: 100vh;
+
+
+    /* I just added a linear gradient to my ambient mode button which I have added an animation
+  which moves the background Position of the gradient colours I have listed within the background so it cycles through all the colours I have listed.
+  using the ease in an out tag which slowly fades and brings in and fades out new colours */
+  background: linear-gradient(90deg, rgb(0, 0, 0),  rgb(49, 22, 22) 0%, rgb(11, 37, 116) 100%, rgba(252,69,69,0.9878545168067226) 100%), rgba(0,0,0) 100%;
+	
+	background-size: 400% 400% ;
+	animation: gradient 30s ease infinite;
+
+	height: 100vh;
+ 
+  color: white;
+}
+
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 20%;
+	}
+  0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+/* styling for the player is  */
+
+.player {
+  
+
+  
+  display: grid;
+  grid-template-columns: 48px 1fr 48px ;
+  grid-gap: 16px;
+  padding: 8px 24px;
+  position: relative;
+  border-radius: 64px;
+
+}
+
+
+
+.control,#current {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-block: 16px;
+}
+
+
+
+
+#playbtn {
+  font-size: 24px;
+  color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
+  cursor: pointer;
+}
+
+
+
+#playbtn:hover {
+  -webkit-text-fill-color: white;
+}
+
+
+
+
+.info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 21px;
+
+}
+
+
+
+
+
+#current {
+  text-align: right;
+}
+
+
+
+
+.bar {
+  --space: 2px;
+  background-color: #ececec24;
+  overflow: hidden;
+  left: var(--space);
+  right: var(--space);
+  top: var(--space);
+  bottom: var(--space);
+  position: absolute;
+  border-radius: 64px;
+  z-index: -2;
+}
+
+
+#progress {
+  display: block;
+  width: var(--progress,0%);
+  
+  transition: all 1s linear;
+  height: 100%;
+  background: linear-gradient(90deg, rgb(203, 203, 203),  rgb(80, 17, 198) 2%, rgba(29,253,185,1) 50%, rgba(173, 49, 49, 0.988) 100%);
+	
+	background-size: 400% ;
+	animation: gradient 60s ease infinite;
+
+	height: 100vh;
+ 
+ 
+}
+
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 20%;
+	}
+  0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.player2 {
+  
+
+  background-color: var(--bg);
+  display: grid;
+  grid-template-columns: 48px 1fr 48px ;
+  grid-gap: 16px;
+  padding: 8px 24px;
+  position: relative;
+  border-radius: 64px;
+
+}
+
+
+
+.control2,#current2 {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-block: 16px;
+}
+
+
+
+
+
+
+.info2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 21px;
+}
+
+
+
+
+
+
+#current2 {
+  text-align: right;
+}
+
+#playbtn2 {
+  font-size: 24px;
+  color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
+  cursor: pointer;
+}
+
+
+#stopbtn2 {
+  font-size: 29px;
+  margin:3px;
+  color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
+  cursor: pointer;
+}
+
+#stopbtn {
+  font-size: 29px;
+  margin:3px;
+  color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
+  cursor: pointer;
+}
+
+
+#stopbtn:hover {
+  -webkit-text-fill-color: white;
+}
+
+
+#stopbtn2:hover {
+  -webkit-text-fill-color: white;
+}
+
+
+#playbtn2:hover {
+  -webkit-text-fill-color: white;
+}
+
+
+
+.bar2 {
+  --space: 2px;
+  background-color: #ececec24;
+  overflow: hidden;
+  left: var(--space);
+  right: var(--space);
+  top: var(--space);
+  bottom: var(--space);
+  position: absolute;
+  border-radius: 64px;
+  z-index: -2;
+}
+
+
+#progress2 {
+  display: block;
+  width: var(--progress,0%);
+  
+  transition: all 1s linear;
+  height: 100%;
+
+/* the progress bar gradiant colour movement has to be my favourite element 
+I though of when I realised I could add this */
+/* it not only suits the background gradient and the spacey aesthethic for the music 
+but just adds a such higher level of interest for normally such a boring grey element like a progress bar. 
+Which is interesting considering its something that is always moving when audio is played, yet we are used to it being one color
+very happy I thought of this and added some nice transition in animated  the colors making sure to add a long 60 seconds. I did it longer as a shorter time is a little too much  */
+  background: linear-gradient(90deg, rgb(203, 203, 203),  rgb(80, 17, 198) 2%, rgba(29,253,185,1) 100%, rgba(173, 49, 49, 0.988) 100%);
+	
+	background-size: 400% ;
+	animation: gradient 60s ease infinite;
+
+	height: 100vh;
+ 
+ 
+}
+
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 20%;
+	}
+  0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+
+
+
+
+
+
+
+/* adjusting the screen size for the elements to be resized once it hits a certain aspect 
+ratio in order for it to be compatibiblti with mobile */
+  
+
+
+  
+
+ 
+
+
+   /*  grid effect animation
+   https://alvarotrigo.com/blog/animated-backgrounds-css/*/ 
+
+      /* I'm really glad I figured out this grid affect as it was very interesting to play around with the transition animation times along with the positioning*/ 
+ /* When I first got it working it felt like it was a bit much for the aesthetic of the website, Once I played around with the opacity to blend into the background
+ Was when it really started to blend in well and complement the other features of the website such as the text and parallax*/ 
+
+     /*  particularly when I added in an app media query so when it's resize to a mobile  aspect ratio, The plane Axes and with percentage along with the height and rotation is shortened to create a more particle effect which adds a bit of a difference on mobile
+     */ 
+     /* I found that the mobile version the animation of the grid was a little over the top and squished so I sort of had to condense the grid effect 
+     */ 
+
+.wrap {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  margin: 0 auto;
+  perspective: 360px;
+  perspective-origin: 50% 50%;
+}
+
+
+
+.top-plane, .bottom-plane {
+  width: 200%;
+  height: 100%;
+  position: absolute;
+  bottom: -90%;
+  left: -50%;
+  background-image: -webkit-linear-gradient(#c9f101 2px, transparent 2px), -webkit-linear-gradient(left, #faf5f5 2px, transparent 2px);
+  background-size: 100px 100px, 100px 100px;
+  background-position: -1px -1px, -1px -1px;
+  transform: rotateX(85deg);
+  animation: planeMoveTop 8s infinite linear;
+}
+
+@keyframes planeMoveTop {
+  from {
+    background-position: 0px -100px, 0px 0px;
+  }
+  to {
+    background-position: 0px 0px, 100px 0px;
+  }
+}
+@keyframes planeMoveBot {
+  from {
+    background-position: 0px 0px, 0px 0px;
+  }
+  to {
+    background-position: 0px -100px, 100px 0px;
+  }
+}
+@media (max-height: 350px) {
+  .wrap {
+    perspective: 210px;
+  }
+}
+/* I finally figured out how to correctly use the @ media queries 
+I added some animations to text when the ratio goes bellow 500px making it readable for 
+mobile viewers */
+/* resize mobile text */
+@media (max-width: 500px) {
+   h2{
+      font-size: 40px;
+      color:rgb(195, 118, 1);
+     
+
+  }
+}
+
+
+/* resize mobile text */
+@media (max-width: 500px) {
+  p{
+     font-size: 20px;
+   
+   
+
+ }
+}
+
+/* resize mobile elements for the web player */
+@media (max-width: 500px) {
+  .player2, .player, .info, .info2{
+     font-size: 15px;
+   
+   
+
+ }
+}
+
+
+/* resize wrap for grid animation elements for desktop grid */
+@media (min-width: 500px) {
+  .wrap {
+    width: px;
+    height: 40%;
+   opacity: 10%;
+    margin: 0 auto;
+    perspective: 100px;
+    perspective-origin: 50% 50%;
+}
+}
+
+
+
+
+
+
+
+/* resize wrap for grid animation elements for mobile grid effect */
+@media (max-width: 500px) {
+  .wrap {
+    width: 400%;
+    height: 40px;
+    opacity: 30%;
+    margin: 0 auto;
+    perspective: 1px;
+    perspective-origin: 50% 50%;
+}
+}
+
+
+
+/* resize wrap for grid animation elements for mobile */
+@media (max-width: 600px) {
+  #parallax{
+    
+    width: -110%;
+    background-size:75%;
+    height: 80vh;
+    animation-name: fadeInOpacity1;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-out;
+    animation-duration: 2s;
+   
+}
+}
+@keyframes fadeInOpacity1 {
+	80% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+  
+
+
+/* social media links style*/ 
+
+.social-container {
+  width: 400px;
+  margin: 3vh auto;
+  text-align: center;
+}
+.social-icons {
+  padding: 0;
+  list-style: none;
+  margin: 1em;
+}
+.social-icons li {
+  display: inline-block;
+  margin: 0.15em;
+  position: relative;
+  font-size: 1.2em;
+}
+.social-icons i {
+  color: #fff;
+  position: absolute;
+  top: 21px;
+  left: 21px;
+  transition: all 265ms ease-out;
+}
+.social-icons a {
+  display: inline-block;
+}
+.social-icons a:before {
+  transform: scale(1);
+  -ms-transform: scale(1);
+  -webkit-transform: scale(1);
+  content: " ";
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  display: block;
+  background: linear-gradient(45deg, #2abda2, #7c0251);
+  transition: all 265ms ease-out;
+}
+.social-icons a:hover:before {
+  transform: scale(0);
+  transition: all 265ms ease-in;
+}
+.social-icons a:hover i {
+  transform: scale(4.2);
+  -ms-transform: scale(1.2);
+  -webkit-transform: scale(2.2);
+  color: #ffffff;
+  background: -webkit-linear-gradient(45deg, #ffffff, #5e0592);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 265ms ease-in;
+}

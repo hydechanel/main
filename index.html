@@ -1,0 +1,127 @@
+ <!-- The website works fine in chrome the only issue in firefox was that the page can be 
+scrolled endlessly down or side ways for some reason  -->
+
+
+<!DOCTYPE HTML>
+<html lang="en-">
+  <head>
+   <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+
+  	<title>Hyde Chanel</title>
+    <link
+    rel="stylesheet"
+    href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+    crossorigin="anonymous"/>
+  <link rel="stylesheet" href="../res/fontawesome/css/all.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="style.css" />
+
+  </head>
+  <body> 
+ <div id="outline"> 
+    <h2>Hyde Chanel </h2>
+  </div>
+  <!--assigning my audio tracks with an audio id-->
+  <audio id="player" src="audio/making-moves.mp3"></audio>
+  <audio id="player2" src="audio/if-you know.wav"></audio>
+  
+ 
+ 
+  <div class="player">
+    <div class="control">
+      <i class="fas fa-play" id="playbtn"></i> 
+
+      <i class="fa fa-stop-circle" id="stopbtn"  onClick="refreshPage()"></i>
+     </div>  
+     <div class="info">
+      1. Making Moves
+      <div class="bar">
+        <div id="progress"></div>
+      </div>
+    </div>
+
+
+
+   <div id="current">0:00</div>
+ </div>
+
+</div>
+
+<div class="player2">
+  <div class="control">
+    <i class="fas fa-play" id="playbtn2" ></i> 
+
+    <!--I could not figure out how to set the stop button of the audio-->
+      <!--I could get it to pause but it just would not reset the audio once played again-->
+    <i class="fa fa-stop-circle" id="stopbtn2"  onClick="refreshPage()"></i>
+    <!-- In the end my work around was to just set a onclick function to refresh the page 
+    which stops the audio on the player, along with the smooth animation that happens when the webpage is opened. 
+  Not the most practical way but it does the job  -->
+    </div> 
+    
+   
+    
+   
+   <div class="info2">
+    2. If You Know
+    <div class="bar2">
+      <div id="progress2"></div>
+    </div>
+  </div>
+
+
+
+ <div id="current2">0:00</div>
+</div>
+<p> Name: Making Moves EP  </p>
+<p> Genre: Deep House, Deep Minimal Tech, Deep-Tech
+</p>
+<p> Artist: Hyde Chanel
+</p>
+</div>
+<body>
+
+  <div class="wrap">
+    <div class="top-plane"></div>
+    <div class="bottom-plane"></div>
+  </div>
+ 
+
+
+<div id="parallax"></div>
+
+<h3>About</h3>
+  <p>Harvey Jepson (Hyde Chanel) is an aspiring electronic dance music artist, his main focus is creating deep minimal tech house, along with spacey ambient soundscapes.
+    Harvey is intuitively drawn to designing sound that engenders themes of vastness and deep consciousness, as well as music that evokes a sense of calming optimism that makes you dance, with hip-hop and jazz influences.
+Harvey has always been fascinated by art and technology, especially sound design and film scores from classic 2000s animation and retro video games. 
+ His main influences today are Mike Sharon & Robin Rafa, Aron Volta (Electronic Dance Music Producers), Hans Zimmer (Film Composer) and Brian Eno (Ambient Music Producer). 
+  
+  </p>
+  <!-- using a  handy css svg icons style sheet adding all social media link icons   -->
+ <h3>Socials</h3>
+ <div class="social-container">
+  <ul class="social-icons">
+    <!-- making it neater by adding target blank to open the links in a new tab for the user  -->
+     <li><a href="https://soundcloud.com/hyde-chanel" target=”_blank”><i class="fa fa-soundcloud"></i></a></li>
+      <li><a href="https://instagram.com" target=”_blank><i class="fa fa-instagram"”></i></a></li>
+      <li><a href="https://open.spotify.com/artist/19QWTOCtf7AQHCHjcmjhAN?si=ym8E7zCGRh-tT91HvI2tkg" target=”_blank”><i class="fa fa-spotify"></i></a></li>
+      
+  </ul>
+
+  
+
+
+
+
+ 
+ </div>
+<script src="script.js"> 
+</script>
+</body>
+<footer>
+
+</footer>
+</html>
